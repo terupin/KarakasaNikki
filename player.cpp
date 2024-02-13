@@ -65,6 +65,7 @@ void Player::SetState()
 void Player::Update()
 {
 	m_OldPosition = m_Position;  //前の位置を取得
+	m_Axis = Vector3(0.0f,0.0f,0.0f);
 
 	Scene* scene = Manager::GetScene();   //現在のシーン取得
 	Camera* cameraobj = scene->GetGameObject<Camera>();//カメラの情報を取得
@@ -74,10 +75,17 @@ void Player::Update()
 	//当たり判定の更新
 	SetCapsule(PlayerCol,GetPosition(), GetScale(), m_Model->m_Vertices);
 
-	if (Input::GetKeyPress('N'))
+
+	//カメラ追従
+	if (Input::GetKeyPress(VK_LEFT))
 	{
-		m_Rotation.y += 0.1;
+		m_Rotation.y += DirectX::XM_PI * 0.01f;
 	}
+	if (Input::GetKeyPress(VK_RIGHT))
+	{
+		m_Rotation.y -= DirectX::XM_PI * 0.01f;
+	}
+
 
 	//ステートで実行をしている
 	m_StateMachine->StateUpdate();
@@ -93,10 +101,6 @@ void Player::Update()
 				m_Position.z = m_OldPosition.z;
 			}
 	}
-
-	std::list<Book>::iterator itr;
-
-
 
 	//アニメーションフレーム
 	m_ToFrame++;

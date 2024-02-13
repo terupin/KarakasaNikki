@@ -61,7 +61,6 @@ void Enemy::Update()
 	Umbrella* umbrella = scene->GetGameObject<Umbrella>();
 
 	//当たり判定の設定
-	std::cout << "敵" << std::endl;
 	SetCapsule(EnemyCol, GetPosition(), GetScale(), m_Model->m_Vertices);
 	
 	//ステートで実行をしている

@@ -67,9 +67,6 @@
     <Filter Include="ソース ファイル\State\Player">
       <UniqueIdentifier>{b2e18bff-a2cf-4542-a028-0726e2c3bc7e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Obj\Player">
-      <UniqueIdentifier>{331dd310-3eee-458e-bc39-1447d1dcbc55}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Shader.cpp">
@@ -195,26 +192,26 @@
     <ClCompile Include="TitleTorii.cpp">
       <Filter>ソース ファイル\Scene\Title</Filter>
     </ClCompile>
-    <ClCompile Include="player.cpp">
-      <Filter>ソース ファイル\Obj\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerAttack.cpp">
-      <Filter>ソース ファイル\Obj\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerFall.cpp">
-      <Filter>ソース ファイル\Obj\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerJump.cpp">
-      <Filter>ソース ファイル\Obj\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerRun.cpp">
-      <Filter>ソース ファイル\Obj\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="umbrella.cpp">
-      <Filter>ソース ファイル\Obj\Player</Filter>
-    </ClCompile>
     <ClCompile Include="Book.cpp">
       <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="player.cpp">
+      <Filter>ソース ファイル\State\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerAttack.cpp">
+      <Filter>ソース ファイル\State\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerFall.cpp">
+      <Filter>ソース ファイル\State\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerJump.cpp">
+      <Filter>ソース ファイル\State\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerRun.cpp">
+      <Filter>ソース ファイル\State\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="umbrella.cpp">
+      <Filter>ソース ファイル\State\Player</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -44,20 +44,20 @@ void Camera::Update()
 	if (Input::GetKeyPress(VK_RIGHT))
 	{
 		m_Rotation.y -= DirectX::XM_PI * 0.01f;
-		if (m_Rotation.y < -DirectX::XM_PI)
-		{
-			m_Rotation.y += DirectX::XM_PI * 2.0f;
-		}
+		//if (m_Rotation.y < -DirectX::XM_PI)
+		//{
+		//	m_Rotation.y += DirectX::XM_PI * 2.0f;
+		//}
 	}
 
 
 	if (Input::GetKeyPress(VK_LEFT))
 	{
 		m_Rotation.y += DirectX::XM_PI * 0.01f;
-		if (m_Rotation.y > -DirectX::XM_PI)
-		{
-			m_Rotation.y -= DirectX::XM_PI * 2.0f;
-		}
+		//if (m_Rotation.y > -DirectX::XM_PI)
+		//{
+		//	m_Rotation.y -= DirectX::XM_PI * 2.0f;
+		//}
 	}
 
 	m_Position.x = m_Target.x - sinf(m_Rotation.y) * m_TargetLength;
@@ -70,7 +70,7 @@ void Camera::Draw()
 {
 	// ビュー変換後列作成
 	Vector3 up = Vector3(0.0f, 1.0f, 0.0f);
-	m_ViewMatrix = DirectX::XMMatrixLookAtLH(m_Position, m_Target, up);										// 左手系にした　20230511 by suzuki.tomoki
+	m_ViewMatrix = DirectX::XMMatrixLookAtLH(m_Position, m_Target, up);										
 
 	Renderer::SetViewMatrix(&m_ViewMatrix);
 
@@ -83,7 +83,7 @@ void Camera::Draw()
 
 	//プロジェクション行列の生成
 	Matrix projectionMatrix;
-	projectionMatrix = DirectX::XMMatrixPerspectiveFovLH(fieldOfView, aspectRatio, nearPlane, farPlane);	// 左手系にした　20230511 by suzuki.tomoki
+	projectionMatrix = DirectX::XMMatrixPerspectiveFovLH(fieldOfView, aspectRatio, nearPlane, farPlane);
 
 	Renderer::SetProjectionMatrix(&projectionMatrix);
 }

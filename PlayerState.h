@@ -27,7 +27,7 @@ private:
 	Player* PlayerObj;  //プレイヤー
 	const char* AnimName = "Walk";  	//アニメーションの名前
 
-	float WarkSpeed = 0.1f;  //歩く速さ
+	float WarkSpeed = 0.05f;  //歩く速さ
 
 public:
 	PlayerWalk(Player* context) :State(context) {};

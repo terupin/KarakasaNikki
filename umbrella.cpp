@@ -6,6 +6,7 @@
 #include"player.h"
 #include"enemy.h"
 #include"Model_Load.h"
+#include"shadow.h"
 
 #include"input.h"
 
@@ -29,6 +30,8 @@ void Umbrella::Init()
     m_Model->LoadAnimation("asset/model/close.fbx", "Close");
 
    this->m_Rotation = Vector3(2.4f, 0.0f, 0.0f);
+
+   
 
     //読み込んだアニメーションを取得する
     m_UDModel->GetAnim(m_Model);

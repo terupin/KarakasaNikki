@@ -57,13 +57,13 @@ void PlayerWalk::Update()
 		}
 	}
 
+	PlayerObj->m_Axis = m_Pos;
+
 	//ƒ|ƒWƒVƒ‡ƒ“‚ðŠi”[‚·‚é
 	PlayerObj->SetPosition(m_Pos);
 
 	//‘–‚Á‚Ä‚¢‚éê‡
-	if (Input::GetKeyPress('P')||
-		Input::Input::GetPadTrigger_Left()
-		)
+	if (Input::GetKeyPress('P')||Input::Input::GetPadTrigger_Left())
 	{
 		PlayerObj->GetComponent<StateMachine<Player>>()->SendTrigger(Trigger::ToRun);
 	}

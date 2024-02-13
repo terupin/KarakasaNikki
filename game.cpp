@@ -45,8 +45,9 @@ void Game::Init()
 	AddGameObject<Camera>(0);
 	AddGameObject<Sky>(1);
 	AddGameObject<Field>(1);
-	AddGameObject<Player>(1);
 	AddGameObject<Umbrella>(1);
+	AddGameObject<Player>(1);
+
 	AddGameObject<Enemy>(1);
 	TitleBench* test = AddGameObject<TitleBench>(1);
 	test->SetRotation({ 0.0f, 0.0f, 0.0f });

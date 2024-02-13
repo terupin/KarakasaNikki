@@ -50,7 +50,7 @@ void PlayerRun::Update()
 	PlayerObj->SetPosition(m_Pos);
 
 	//•à‚«‚É–ß‚é
-	if (Input::GetKeyUp('P')||Input::GetPadTriggerUp_Left())
+	if (Input::GetKeyUp('P')/*||Input::GetPadTriggerUp_Left()*/)
 		PlayerObj->GetComponent<StateMachine<Player>>()->SendTrigger(Trigger::Towalk);
 
 	//~‚Ü‚Á‚½ê‡

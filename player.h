@@ -8,15 +8,10 @@
 #include"enemy.h"
 #include"Book.h"
 
-
-
-class Scene;
-class Camera;
-
 class Player : public GameObject
 {
 private:
-	DirectX::SimpleMath::Vector3		m_Velocity{};  //落ちていくときの加速度
+	DirectX::SimpleMath::Vector3		m_Velocity;  //落ちていくときの加速度
 	class Audio*	m_SE{};
 	float groundHeight = 0.0f;	//地面への接地
 
@@ -28,9 +23,10 @@ public:
 	class Model_Load* m_Model;
 	class AnimationModel* m_UDModel;
 
-	bool attack = 0;
+	bool attack = false;  //攻撃をしているか？?
+	
+	DirectX::SimpleMath::Vector3 m_Axis;
 
-	std::list<Enemy> List_Enemy;  //敵リストB
 	//位置フレーム前にいた場所
 	DirectX::SimpleMath::Vector3 m_OldPosition;
 
@@ -61,7 +57,5 @@ public:
 	void Init() override;
 	void Update() override;
 	void Draw() override;
-
-
 
 };
