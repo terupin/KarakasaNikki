@@ -16,11 +16,10 @@ void Book::Init()
 	m_Model->LoadTex("asset/model/Object/Book_Color.png");
 	m_Model->LoadStaticModel("asset/model/Object/Book.fbx");
 
-	SetPosition(Vector3(0.0f, 1.0f, 3.0f));
 	SetRotation(Vector3(1.5f, 0.0f, 0.0f));
 	SetScale(Vector3(0.01f, 0.01f, 0.01f));
 
-	SetAABB(m_AABB, m_Position, m_Scale, m_Model->m_Vertices);
+	player->m_BookNumber++;  //Žæ‚ç‚È‚¢‚Æ‚¢‚¯‚È‚¢–{‚Ì”‚ð‘«‚·
 
 }
 
@@ -39,12 +38,9 @@ void Book::Update()
 	
 	if(hit_player)
 	{
+		player->m_BookNumber--;
 		this->SetDestroy();	
 	}
-
-
-
-
 }
 
 

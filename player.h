@@ -15,7 +15,6 @@ private:
 	class Audio*	m_SE{};
 	float groundHeight = 0.0f;	//地面への接地
 
-
 protected:
 	//ステート管理クラス
 	class StateMachine<Player>* m_StateMachine;
@@ -53,8 +52,9 @@ public:
 	//カプセル
 	Capsule PlayerCol;
 
-
 	bool m_Camlock = false;  //カメラの追従
+	int m_BookNumber = 0;  //取らないといけない本の数
+
 
 	void SetState();  //Stateを登録する
 
