@@ -41,7 +41,6 @@ using namespace DirectX::SimpleMath;
 // ゲーム初期処理
 void Game::Init()
 {
-
 	AddGameObject<Camera>(0);
 	AddGameObject<Sky>(1);
 	AddGameObject<Field>(1);
@@ -55,10 +54,24 @@ void Game::Init()
 	Box* boxtest = AddGameObject<Box>(1);
 	boxtest->SetPosition({ -2.0f,0.0f,-2.0f });
 
-	for (int i = 0; i < 3; i++)
+	//本の読み込み(ゲームで取らないといけないやつ)
 	{
 		Book* bookobj = AddGameObject<Book>(1);
-		bookobj->SetPosition(Vector3(0.0f, 1.0f, 1.0f+i));
+		bookobj->SetPosition(Vector3(0.0f, 1.0f, 5.0f));
+		SetAABB(bookobj->GetAABB(), bookobj->GetPosition(), 
+			bookobj->GetScale(), bookobj->GetModel().m_Vertices);
+	}
+	{
+		Book* bookobj = AddGameObject<Book>(1);
+		bookobj->SetPosition(Vector3(4.0f, 1.0f, 3.0f));
+		SetAABB(bookobj->GetAABB(), bookobj->GetPosition(),
+			bookobj->GetScale(), bookobj->GetModel().m_Vertices);
+	}
+	{
+		Book* bookobj = AddGameObject<Book>(1);
+		bookobj->SetPosition(Vector3(9.0f, 1.0f, 5.0f));
+		SetAABB(bookobj->GetAABB(), bookobj->GetPosition(),
+			bookobj->GetScale(), bookobj->GetModel().m_Vertices);
 	}
 
 	// チェック完了
@@ -83,26 +96,17 @@ void Game::Uninit()
 // ゲーム更新処理
 void Game::Update()
 {
-	// フェードインが終了しているか？	
-//	if (m_Transition->GetState() == Transition::State::Stop) {
-//		if (Input::GetKeyTrigger(VK_RETURN))
-//		{
-//			m_Transition->FadeOut();
-//		}
-//	}
+	Player* player = GetGameObject<Player>();
 
-	// ゴールしていないのであれば
 	if (!m_Goal)
 	{
-		Goal* goal = GetGameObject<Goal>();
-
-		// ゴールした際にゴールオブジェクトは削除される
-		if (goal == nullptr)
+		//全ての本を回収したか?
+		if (player->m_BookNumber == 0)
 		{
 			m_Goal = true;
 
-			// ２秒後にスレッドを生成してフェードアウト開始
-			Invoke([=]() { m_Transition->FadeOut(); }, 2000);
+			// 1秒後にスレッドを生成してフェードアウト開始
+			Invoke([=]() { m_Transition->FadeOut(); }, 1000);
 		}
 	}
 

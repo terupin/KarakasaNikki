@@ -192,9 +192,6 @@
     <ClCompile Include="TitleTorii.cpp">
       <Filter>ソース ファイル\Scene\Title</Filter>
     </ClCompile>
-    <ClCompile Include="Book.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="player.cpp">
       <Filter>ソース ファイル\State\Player</Filter>
     </ClCompile>
@@ -212,6 +209,9 @@
     </ClCompile>
     <ClCompile Include="umbrella.cpp">
       <Filter>ソース ファイル\State\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Book.cpp">
+      <Filter>ソース ファイル\Obj</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
