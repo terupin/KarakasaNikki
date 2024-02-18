@@ -24,15 +24,12 @@
     <ClCompile Include="AnimationModel.cpp" />
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="audio.cpp" />
-    <ClCompile Include="battery.cpp" />
     <ClCompile Include="box.cpp" />
-    <ClCompile Include="bullet.cpp" />
     <ClCompile Include="camera.cpp" />
     <ClCompile Include="collision.cpp" />
     <ClCompile Include="cylinder.cpp" />
     <ClCompile Include="enemy.cpp" />
     <ClCompile Include="EnemyState.cpp" />
-    <ClCompile Include="explosion.cpp" />
     <ClCompile Include="field.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="goal.cpp" />
@@ -46,7 +43,6 @@
     <ClCompile Include="PlayerIdle.cpp" />
     <ClCompile Include="PlayerJump.cpp" />
     <ClCompile Include="PlayerRun.cpp" />
-    <ClCompile Include="PlayerState.cpp" />
     <ClCompile Include="PlayerWalk.cpp" />
     <ClCompile Include="renderer.cpp" />
     <ClCompile Include="result.cpp" />
@@ -57,12 +53,10 @@
     <ClCompile Include="sprite.cpp" />
     <ClCompile Include="title.cpp" />
     <ClCompile Include="TitleBench.cpp" />
-    <ClCompile Include="TitleBound.cpp" />
     <ClCompile Include="TitleCamera.cpp" />
     <ClCompile Include="TitleLogo.cpp" />
     <ClCompile Include="TitlePlayer.cpp" />
     <ClCompile Include="TitleSky.cpp" />
-    <ClCompile Include="TitleTorii.cpp" />
     <ClCompile Include="transition.cpp" />
     <ClCompile Include="umbrella.cpp" />
     <ClCompile Include="utftosjisconv.cpp" />
@@ -74,9 +68,7 @@
     <ClInclude Include="AnimationModel.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="audio.h" />
-    <ClInclude Include="battery.h" />
     <ClInclude Include="box.h" />
-    <ClInclude Include="bullet.h" />
     <ClInclude Include="camera.h" />
     <ClInclude Include="CBoundingSphere.h" />
     <ClInclude Include="collision.h" />
@@ -84,7 +76,6 @@
     <ClInclude Include="cylinder.h" />
     <ClInclude Include="enemy.h" />
     <ClInclude Include="EnemyState.h" />
-    <ClInclude Include="explosion.h" />
     <ClInclude Include="field.h" />
     <ClInclude Include="fpscontrol.h" />
     <ClInclude Include="game.h" />
@@ -113,7 +104,6 @@
     <ClInclude Include="TitleLogo.h" />
     <ClInclude Include="TitlePlayer.h" />
     <ClInclude Include="TitleSky.h" />
-    <ClInclude Include="TitleTorii.h" />
     <ClInclude Include="transition.h" />
     <ClInclude Include="umbrella.h" />
     <ClInclude Include="utftosjisconv.h" />

@@ -25,17 +25,11 @@
     <Filter Include="ソース ファイル\Scene">
       <UniqueIdentifier>{cd34842a-7816-464e-91b4-365eb60d791c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\main">
-      <UniqueIdentifier>{7317c362-e038-42a6-ac54-248011c4948c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="リソース ファイル\VertexShader">
       <UniqueIdentifier>{1b6acf5d-b38a-4fec-b110-db8aa2290557}</UniqueIdentifier>
     </Filter>
     <Filter Include="リソース ファイル\shader">
       <UniqueIdentifier>{d8caf21b-78d1-47dc-9734-9b4cf5d954ba}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\アニメーション">
-      <UniqueIdentifier>{41c4472b-9bf7-4c0e-814f-61b9cd982693}</UniqueIdentifier>
     </Filter>
     <Filter Include="ヘッダー ファイル\State">
       <UniqueIdentifier>{1c8174c1-44d6-45cb-8a19-634914ac01a7}</UniqueIdentifier>
@@ -67,6 +61,15 @@
     <Filter Include="ソース ファイル\State\Player">
       <UniqueIdentifier>{b2e18bff-a2cf-4542-a028-0726e2c3bc7e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\Obj">
+      <UniqueIdentifier>{d5b3e3a8-9567-4652-8852-b709a284f299}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\System\アニメーション">
+      <UniqueIdentifier>{41c4472b-9bf7-4c0e-814f-61b9cd982693}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\scene">
+      <UniqueIdentifier>{785eba6f-d6ed-4b51-80a3-a40724881110}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Shader.cpp">
@@ -78,22 +81,13 @@
     <ClCompile Include="ModelRenderer.cpp">
       <Filter>ソース ファイル\system</Filter>
     </ClCompile>
-    <ClCompile Include="battery.cpp">
-      <Filter>ソース ファイル\Obj</Filter>
-    </ClCompile>
     <ClCompile Include="box.cpp">
-      <Filter>ソース ファイル\Obj</Filter>
-    </ClCompile>
-    <ClCompile Include="bullet.cpp">
       <Filter>ソース ファイル\Obj</Filter>
     </ClCompile>
     <ClCompile Include="cylinder.cpp">
       <Filter>ソース ファイル\Obj</Filter>
     </ClCompile>
     <ClCompile Include="enemy.cpp">
-      <Filter>ソース ファイル\Obj</Filter>
-    </ClCompile>
-    <ClCompile Include="explosion.cpp">
       <Filter>ソース ファイル\Obj</Filter>
     </ClCompile>
     <ClCompile Include="field.cpp">
@@ -117,26 +111,11 @@
     <ClCompile Include="game.cpp">
       <Filter>ソース ファイル\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Application.cpp">
-      <Filter>ソース ファイル\main</Filter>
-    </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>ソース ファイル\main</Filter>
-    </ClCompile>
-    <ClCompile Include="manager.cpp">
-      <Filter>ソース ファイル\main</Filter>
-    </ClCompile>
     <ClCompile Include="utftosjisconv.cpp">
       <Filter>ソース ファイル\system</Filter>
     </ClCompile>
     <ClCompile Include="utility.cpp">
       <Filter>ソース ファイル\system</Filter>
-    </ClCompile>
-    <ClCompile Include="renderer.cpp">
-      <Filter>ソース ファイル\main</Filter>
-    </ClCompile>
-    <ClCompile Include="input.cpp">
-      <Filter>ソース ファイル\main</Filter>
     </ClCompile>
     <ClCompile Include="audio.cpp">
       <Filter>ソース ファイル\system</Filter>
@@ -174,23 +153,14 @@
     <ClCompile Include="TitlePlayer.cpp">
       <Filter>ソース ファイル\Scene\Title</Filter>
     </ClCompile>
-    <ClCompile Include="TitleBound.cpp">
-      <Filter>ソース ファイル\Scene\Title</Filter>
-    </ClCompile>
     <ClCompile Include="TitleLogo.cpp">
       <Filter>ソース ファイル\Scene\Title</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerState.cpp">
-      <Filter>ソース ファイル\State\Player</Filter>
     </ClCompile>
     <ClCompile Include="PlayerIdle.cpp">
       <Filter>ソース ファイル\State\Player</Filter>
     </ClCompile>
     <ClCompile Include="PlayerWalk.cpp">
       <Filter>ソース ファイル\State\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="TitleTorii.cpp">
-      <Filter>ソース ファイル\Scene\Title</Filter>
     </ClCompile>
     <ClCompile Include="player.cpp">
       <Filter>ソース ファイル\State\Player</Filter>
@@ -213,17 +183,23 @@
     <ClCompile Include="Book.cpp">
       <Filter>ソース ファイル\Obj</Filter>
     </ClCompile>
+    <ClCompile Include="renderer.cpp">
+      <Filter>ソース ファイル\system</Filter>
+    </ClCompile>
+    <ClCompile Include="manager.cpp">
+      <Filter>ソース ファイル\system</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>ソース ファイル\system</Filter>
+    </ClCompile>
+    <ClCompile Include="input.cpp">
+      <Filter>ソース ファイル\system</Filter>
+    </ClCompile>
+    <ClCompile Include="Application.cpp">
+      <Filter>ソース ファイル\system</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="main.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Application.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="utftosjisconv.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Sprite.h">
       <Filter>ヘッダー ファイル\System</Filter>
     </ClInclude>
@@ -239,74 +215,11 @@
     <ClInclude Include="Component.h">
       <Filter>ヘッダー ファイル\System</Filter>
     </ClInclude>
-    <ClInclude Include="Scene.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="audio.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="battery.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="box.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="bullet.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="camera.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="cylinder.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="enemy.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="explosion.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="field.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="fpscontrol.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="game.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="goal.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="input.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="manager.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="result.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="score.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="shadow.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="sky.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="transition.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="utility.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Model_Load.h">
-      <Filter>ヘッダー ファイル\アニメーション</Filter>
+      <Filter>ヘッダー ファイル\System\アニメーション</Filter>
     </ClInclude>
     <ClInclude Include="AnimationModel.h">
-      <Filter>ヘッダー ファイル\アニメーション</Filter>
+      <Filter>ヘッダー ファイル\System\アニメーション</Filter>
     </ClInclude>
     <ClInclude Include="StateMachine.h">
       <Filter>ヘッダー ファイル\State</Filter>
@@ -322,9 +235,6 @@
     </ClInclude>
     <ClInclude Include="player.h">
       <Filter>ヘッダー ファイル\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="EnemyState.h">
-      <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="TitleSky.h">
       <Filter>ヘッダー ファイル\Title</Filter>
@@ -350,17 +260,80 @@
     <ClInclude Include="collision.h">
       <Filter>ヘッダー ファイル\Collision</Filter>
     </ClInclude>
-    <ClInclude Include="CBoundingSphere.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="gameObject.h">
       <Filter>ヘッダー ファイル\System</Filter>
     </ClInclude>
-    <ClInclude Include="TitleTorii.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Book.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>ヘッダー ファイル\Obj</Filter>
+    </ClInclude>
+    <ClInclude Include="box.h">
+      <Filter>ヘッダー ファイル\Obj</Filter>
+    </ClInclude>
+    <ClInclude Include="cylinder.h">
+      <Filter>ヘッダー ファイル\Obj</Filter>
+    </ClInclude>
+    <ClInclude Include="audio.h">
+      <Filter>ヘッダー ファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="camera.h">
+      <Filter>ヘッダー ファイル\Obj</Filter>
+    </ClInclude>
+    <ClInclude Include="enemy.h">
+      <Filter>ヘッダー ファイル\Obj</Filter>
+    </ClInclude>
+    <ClInclude Include="goal.h">
+      <Filter>ヘッダー ファイル\Obj</Filter>
+    </ClInclude>
+    <ClInclude Include="input.h">
+      <Filter>ヘッダー ファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="utility.h">
+      <Filter>ヘッダー ファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="utftosjisconv.h">
+      <Filter>ヘッダー ファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="transition.h">
+      <Filter>ヘッダー ファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="sky.h">
+      <Filter>ヘッダー ファイル\Obj</Filter>
+    </ClInclude>
+    <ClInclude Include="shadow.h">
+      <Filter>ヘッダー ファイル\Obj</Filter>
+    </ClInclude>
+    <ClInclude Include="score.h">
+      <Filter>ヘッダー ファイル\Obj</Filter>
+    </ClInclude>
+    <ClInclude Include="manager.h">
+      <Filter>ヘッダー ファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="fpscontrol.h">
+      <Filter>ヘッダー ファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="game.h">
+      <Filter>ヘッダー ファイル\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="result.h">
+      <Filter>ヘッダー ファイル\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="scene.h">
+      <Filter>ヘッダー ファイル\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyState.h">
+      <Filter>ヘッダー ファイル\Obj</Filter>
+    </ClInclude>
+    <ClInclude Include="Application.h">
+      <Filter>ヘッダー ファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="CBoundingSphere.h">
+      <Filter>ヘッダー ファイル\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h">
+      <Filter>ヘッダー ファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="field.h">
+      <Filter>ヘッダー ファイル\scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
