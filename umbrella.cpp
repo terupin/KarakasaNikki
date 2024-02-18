@@ -55,25 +55,25 @@ void Umbrella::Update()
     //手の変換行列×手の逆ボーンオフセット行列
     aiMatrix4x4 rootMatrix = m_RightHandBone.Matrix*m_RightHandBone.OffsetMatrix.Inverse();
    
-
     //プレイヤーのワールド行列を取得
     m_WorldMatrix = m_Player->GetWorldMatrix();  
     
     RightHandMatrix = AnimationModel::ChangeMatrix(RightHandMatrix, rootMatrix);  //aiMatrixをMatrixに変換
-    RightHandMatrix.Decompose(m_Rightscale, m_Rightrot, m_Rightpos);
     RightHandMatrix *= m_WorldMatrix;
     RightHandMatrix.Decompose(m_Worldscale, m_Worldrot, m_Worldpos);  //行列を分解
     
     
     //共役クォータニオンにする
-    //s_rot.x = -s_rot.x;
-    //s_rot.y = -s_rot.y;
-    //s_rot.z = -s_rot.z;
+    if (s_rot.x > 0)
+        s_rot.x *= -1.0;
+    if (s_rot.y > 0)
+        s_rot.y *=-1.0f ;
+    if (s_rot.z > 0)
+        s_rot.z *=-1.0f ;
 
-    s_rot = m_Rightrot.ToEuler();//クォータニオンをオイラー角に変換
+    s_rot = m_Worldrot.ToEuler();//クォータニオンをオイラー角に変換
 
     //代入
     SetPosition(m_Worldpos);
-    SetRotation({ s_rot.y,s_rot.x,s_rot.z });  //個々の計算がおかしい
-
+  SetRotation({ s_rot.x,s_rot.y,s_rot.z });  //攻撃と走りの時の回転は良い
 }

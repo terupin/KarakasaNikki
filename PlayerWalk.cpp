@@ -40,24 +40,27 @@ void PlayerWalk::Update()
 		if (Input::GetKeyPress('W') || Stick_Y > 0)
 		{
 			m_Pos += ZAxis * WarkSpeed;
+			PlayerObj->m_Axis += ZAxis;
 		}
 		else if (Input::GetKeyPress('S') || Stick_Y < 0)
 		{
 			m_Pos -= ZAxis * WarkSpeed;
+			PlayerObj->m_Axis -= ZAxis;
 			PlayerObj->m_FromFrame -= 2.0f;  //Œã‚ëŒü‚«‚É•à‚­‚½‚ß
 		}
 
 		if (Input::GetKeyPress('A')|| Stick_X<0)
 		{
 			m_Pos -= XAxis * WarkSpeed;
+			PlayerObj->m_Axis -= XAxis;
 		}
 		if (Input::GetKeyPress('D')||Stick_X>0)
 		{
 			m_Pos += XAxis * WarkSpeed;
+			PlayerObj->m_Axis += XAxis;
 		}
 	}
 
-	PlayerObj->m_Axis = m_Pos;
 
 	//ƒ|ƒWƒVƒ‡ƒ“‚ðŠi”[‚·‚é
 	PlayerObj->SetPosition(m_Pos);

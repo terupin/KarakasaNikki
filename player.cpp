@@ -35,7 +35,7 @@ void Player::Init()
 	m_Model->LoadAnimation("asset/model/Player/Run.fbx", "Run");
 	m_Model->LoadAnimation("asset/model/Player/Idle_Jump57.fbx", "Jump");
 	m_Model->LoadAnimation("asset/model/Player/Falling.fbx", "Fall");
-	m_Model->LoadAnimation("asset/model/Player/Attack_45f.fbx", "Attack");
+	m_Model->LoadAnimation("asset/model/Player/Attack_45.fbx", "Attack");
 
 	AddComponent<Shadow>()->SetSize(1.5f);//影の大きさの設定
 
@@ -65,7 +65,6 @@ void Player::SetState()
 void Player::Update()
 {
 	m_OldPosition = m_Position;  //前の位置を取得
-	m_Axis = Vector3(0.0f,0.0f,0.0f);
 
 	Scene* scene = Manager::GetScene();   //現在のシーン取得
 	Camera* cameraobj = scene->GetGameObject<Camera>();//カメラの情報を取得
@@ -75,13 +74,18 @@ void Player::Update()
 	//当たり判定の更新
 	SetCapsule(PlayerCol,GetPosition(), GetScale(), m_Model->m_Vertices);
 
+	if (Input::GetKeyTrigger(VK_RETURN))
+	{
+		m_Camlock = !m_Camlock;
+	}
 
 	//カメラ追従
-	if (Input::GetKeyPress(VK_LEFT))
+	if (Input::GetKeyPress(VK_LEFT)&&m_Camlock)
 	{
 		m_Rotation.y += DirectX::XM_PI * 0.01f;
+
 	}
-	if (Input::GetKeyPress(VK_RIGHT))
+	if (Input::GetKeyPress(VK_RIGHT)&&m_Camlock)
 	{
 		m_Rotation.y -= DirectX::XM_PI * 0.01f;
 	}
@@ -126,11 +130,15 @@ void Player::Update()
 		m_Velocity.y = 0.0f;
 	}
 
-	std::cout << "プレイヤーのXポジション" << m_Position.x <<std::endl;
-	std::cout << "プレイヤーの前のXポジション" << m_OldPosition.x << std::endl;
-	std::cout << "プレイヤーのZポジション" << m_Position.z << std::endl;
-	std::cout << "プレイヤーの前のZポジション" << m_OldPosition.z << std::endl;
-
+	if (Input::GetKeyTrigger('R'))
+	{
+		std::cout << "プレイヤーのX回転" << m_Rotation.x << std::endl;
+		std::cout << "プレイヤーのY回転" << m_Rotation.y << std::endl;
+		std::cout << "プレイヤーのZ回転" << m_Rotation.z << std::endl;
+		std::cout << "カメラのX回転" << cameraobj->GetRotation().x << std::endl;
+		std::cout << "カメラのY回転" << cameraobj->GetRotation().y << std::endl;
+		std::cout << "カメラのZ回転" << cameraobj->GetRotation().z << std::endl;
+	}
 
 }
 

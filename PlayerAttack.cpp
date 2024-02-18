@@ -10,6 +10,7 @@ void PlayerAttack::Enter()
 	scene = Manager::GetScene();
 	PlayerObj = scene->GetGameObject<Player>();
 
+
 	//•`‰æ‚µ‚½‚¢ƒAƒjƒ[ƒVƒ‡ƒ“‚ÆƒtƒŒ[ƒ€‚ÌƒZƒbƒg
 	PlayerObj->Set_ToAnim(AnimName);
 	PlayerObj->Set_ToFrame(0);
@@ -22,7 +23,13 @@ void PlayerAttack::Update()
 {
 	scene = Manager::GetScene();
 	PlayerObj = scene->GetGameObject<Player>();
+	m_UmbrellaObj = scene->GetGameObject<Umbrella>();
 
+
+	std::cout << "ŽP‚ÌX‰ñ“]" << m_UmbrellaObj->GetRotation().x << std::endl;
+	std::cout << "ŽP‚ÌY‰ñ“]" << m_UmbrellaObj->GetRotation().y << std::endl;
+	std::cout << "ŽP‚ÌZ‰ñ“]" << m_UmbrellaObj->GetRotation().z << std::endl;
+	
 	if (PlayerObj->m_ToFrame > Frame)
 	{
 		PlayerObj->GetComponent<StateMachine<Player>>()->SendTrigger(Trigger::ToIdle);

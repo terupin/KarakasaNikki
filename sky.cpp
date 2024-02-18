@@ -6,17 +6,20 @@
 #include "sky.h"
 #include "camera.h"
 #include "shader.h"
-
+#include"Model_Load.h"
 
 using namespace DirectX::SimpleMath;
 
 void Sky::Init()
 {
 	m_Scale = Vector3(100.0f, 100.0f, 100.0f);
-
+	m_Model = AddComponent<Model_Load>();
 
 	AddComponent<Shader>()->Load("shader\\unlitTextureVS.cso", "shader\\unlitTexturePS.cso");
-	AddComponent<ModelRenderer>()->Load("asset\\model\\sky.obj");
+	
+	m_Model->LoadTex("asset\\model\\sky.jpg");
+	m_Model->LoadStaticModel("asset\\model\\sky.fbx");
+	
 
 }
 

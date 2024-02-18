@@ -2,7 +2,10 @@
 #include"player.h"
 #include"scene.h"
 #include"manager.h"
+#include"umbrella.h"
 #include"StateMachine.h"
+
+#include<iostream>
 
 //Idle状態の時
 class PlayerIdle :public State<Player>
@@ -91,8 +94,9 @@ class PlayerAttack :public State<Player>
 private:
 	Scene* scene;  //現在のシーン
 	Player* PlayerObj;  //プレイヤー
+	Umbrella* m_UmbrellaObj;  //傘
 	const char* AnimName = "Attack";  	//アニメーションの名前
-	int Frame = 45;
+	int Frame =45;
 
 public:
 	PlayerAttack(Player* context) :State(context) {};

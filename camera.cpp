@@ -11,7 +11,7 @@ void Camera::Init()
 {
 	//カメラと注視点の距離を求める
 
-	m_Position = Vector3(0.0f, 5.0f, -6.0f);
+	m_Position = Vector3(0.0f, 2.0f, -6.0f);
 	m_Target = Vector3(0.0f, 0.0f, 0.0f);
 
 	m_TargetLength = (m_Position - m_Target).Length();
@@ -27,43 +27,74 @@ void Camera::Update()
 	//シーンとプレイヤーの情報を取得
 	Scene* nowscene = Manager::GetScene();
 	Player* playerobj = nowscene->GetGameObject<Player>();
-
-	m_Target = playerobj->GetPosition();
-
 	Vector3 forward = playerobj->GetForward();
 	Vector3 playerpos = playerobj->GetPosition();
+	Vector3 playerrot = playerobj->GetRotation();
+	
+	m_Target = playerobj->GetPosition();//ターゲットをプレイヤーにする
 
-	this->m_Position.y = playerpos.y+2.0;
-
-	if (Input::GetKeyPress(VK_SPACE))
+	//カメラ追従がONになったら、プレイヤーの後ろに移動
+	if (playerobj->m_Camlock == true)
 	{
-		this->m_Position = playerpos - forward * 7.0f;
-		this->m_Position.y += 2.0;
+		float  player_degree = (180 / DirectX::XM_PI) * playerrot.y;  //プレイヤーの回転（度に変換）
+		float camera_degree = (180 / DirectX::XM_PI) * m_Rotation.y;  //カメラの回転（度に変換）
+
+		float degree = camera_degree - player_degree;  //プレイヤーを0度とした場合のカメラの回転(単位　度)
+		degree = fmod(degree, 360);  //360で割った余りを出す(回転回数を0にする)
+
+		//プレイヤーとカメラの角度の差が1度以上の場合
+		if (degree > 1 || degree < -1)
+		{
+			//角度が正の場合
+			if (degree > 0)
+			{
+				//角度が180よりも大きい場合(0度の時には何もしないため)
+				if (degree >= 180)
+				{
+					m_Rotation.y += DirectX::XM_PI * 0.01f;
+				}
+				else if (degree < 180)
+				{
+					m_Rotation.y -= DirectX::XM_PI * 0.01f;
+				}
+			}
+			//角度が負の場合
+			if (degree < 0)
+			{
+				//角度が-180よりも小さい場合(0度の時には何もしないため)
+				if (degree <= -180)
+				{
+					m_Rotation.y -= DirectX::XM_PI * 0.01f;
+				}
+				else if (degree > -180)
+				{
+					m_Rotation.y += DirectX::XM_PI * 0.01f;
+				}
+			}
+		}
+		//プレイヤーとの角度の差が1度未満の場合
+		else
+			SetRotation(playerrot);  //プレイヤーの後ろに移動
+	}
+	
+	//カメラの追従OFFの場合
+	if (playerobj->m_Camlock == false)
+	{
+		if (Input::GetKeyPress(VK_RIGHT))
+		{
+			m_Rotation.y -= DirectX::XM_PI * 0.01f;
+		}
+
+		if (Input::GetKeyPress(VK_LEFT))
+		{
+			m_Rotation.y += DirectX::XM_PI * 0.01f;
+		}
+
 	}
 
-	if (Input::GetKeyPress(VK_RIGHT))
-	{
-		m_Rotation.y -= DirectX::XM_PI * 0.01f;
-		//if (m_Rotation.y < -DirectX::XM_PI)
-		//{
-		//	m_Rotation.y += DirectX::XM_PI * 2.0f;
-		//}
-	}
-
-
-	if (Input::GetKeyPress(VK_LEFT))
-	{
-		m_Rotation.y += DirectX::XM_PI * 0.01f;
-		//if (m_Rotation.y > -DirectX::XM_PI)
-		//{
-		//	m_Rotation.y -= DirectX::XM_PI * 2.0f;
-		//}
-	}
-
+	//追従オフの時にポジションを固定する
 	m_Position.x = m_Target.x - sinf(m_Rotation.y) * m_TargetLength;
 	m_Position.z = m_Target.z - cosf(m_Rotation.y) * m_TargetLength;
-
-
 }
 
 void Camera::Draw()
