@@ -10,7 +10,7 @@ private:
 
 public:
 	BoundingBoxAABB& GetAABB() { return m_AABB; }
-	Model_Load& GetModel() { return *m_Model; }
+	Model_Load& GetModel() { return m_Model; }
 
 	void Init()override;
 	void Update()override;

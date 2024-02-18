@@ -89,7 +89,6 @@ void Game::Init()
 // ƒQ[ƒ€I—¹ˆ—
 void Game::Uninit()
 {
-	//List_Book.clear();
 
 }
 
