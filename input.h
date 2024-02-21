@@ -43,7 +43,8 @@ public:
 	//ゲームパッドのスティックの処理
 	static short int GetPadstick_Left_X();  //左のX座標スティック情報の取得
 	static short int GetPadstick_Left_Y();  //左のY座標スティック情報の取得
-
+	static short int GetPadstick_Right_X();  //右のX座標スティック情報の取得
+	static short int GetPadstick_Right_Y(); //右のY座標スティック情報の取得
 };
 #endif
 // __INPUT_H__

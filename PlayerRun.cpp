@@ -52,7 +52,7 @@ void PlayerRun::Update()
 	//•à‚«‚É–ß‚é
 	if (Input::GetPadTriggerUp_Left())
 	{
-		if (Input::GetKeyUp('P'))
+		if (!Input::GetKeyPress('P'))
 		{
 			PlayerObj->GetComponent<StateMachine<Player>>()->SendTrigger(Trigger::Towalk);
 		}

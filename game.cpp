@@ -11,30 +11,15 @@
 #include "game.h"
 #include "input.h"
 #include "audio.h"
-
 #include "manager.h"
 #include "transition.h"
-
 #include "result.h"
-
 #include "goal.h"
-
 #include "utility.h"
-
-#include "bullet.h"
-
-#include "battery.h"
-
 #include "sky.h"
-
 #include "score.h"
-
-#include "explosion.h"
-
 #include"umbrella.h"
-
 #include"TitleBench.h"
-#include"TitleTorii.h"
 
 using namespace DirectX::SimpleMath;
 

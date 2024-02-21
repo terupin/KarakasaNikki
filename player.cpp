@@ -65,31 +65,31 @@ void Player::SetState()
 void Player::Update()
 {
 	m_OldPosition = m_Position;  //前の位置を取得
+	m_Forward = GetForward();
 
 	Scene* scene = Manager::GetScene();   //現在のシーン取得
 	Camera* cameraobj = scene->GetGameObject<Camera>();//カメラの情報を取得
 	bool hit_static = false;
-	bool hit_book = false;
-
+	
 	//当たり判定の更新
 	SetCapsule(PlayerCol,GetPosition(), GetScale(), m_Model->m_Vertices);
 
-	if (Input::GetKeyTrigger(VK_RETURN))
-	{
+	if (Input::GetKeyTrigger(VK_RETURN) || 
+		Input::GetPadButtonTrigger(XINPUT_GAMEPAD_RIGHT_THUMB))
 		m_Camlock = !m_Camlock;
-	}
 
 	//カメラ追従
-	if (Input::GetKeyPress(VK_LEFT)&&m_Camlock)
+	if (m_Camlock)
 	{
-		m_Rotation.y += DirectX::XM_PI * 0.01f;
-
+		if (Input::GetKeyPress(VK_RIGHT) || Input::GetPadstick_Right_X() > 0)
+		{
+			m_Rotation.y += DirectX::XM_PI * 0.01f;  //時計回り
+		}
+		if (Input::GetKeyPress(VK_LEFT) || Input::GetPadstick_Right_X() < 0)
+		{
+			m_Rotation.y -= DirectX::XM_PI * 0.01f;  //反時計回り
+		}
 	}
-	if (Input::GetKeyPress(VK_RIGHT)&&m_Camlock)
-	{
-		m_Rotation.y -= DirectX::XM_PI * 0.01f;
-	}
-
 
 	//ステートで実行をしている
 	m_StateMachine->StateUpdate();

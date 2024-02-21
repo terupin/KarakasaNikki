@@ -27,7 +27,6 @@ void Camera::Update()
 	//シーンとプレイヤーの情報を取得
 	Scene* nowscene = Manager::GetScene();
 	Player* playerobj = nowscene->GetGameObject<Player>();
-	Vector3 forward = playerobj->GetForward();
 	Vector3 playerpos = playerobj->GetPosition();
 	Vector3 playerrot = playerobj->GetRotation();
 	
@@ -80,12 +79,12 @@ void Camera::Update()
 	//カメラの追従OFFの場合
 	if (playerobj->m_Camlock == false)
 	{
-		if (Input::GetKeyPress(VK_RIGHT))
+		if (Input::GetKeyPress(VK_RIGHT)||Input::GetPadstick_Right_X()>0)
 		{
 			m_Rotation.y -= DirectX::XM_PI * 0.01f;
 		}
 
-		if (Input::GetKeyPress(VK_LEFT))
+		if (Input::GetKeyPress(VK_LEFT)||Input::GetPadstick_Right_X()<0)
 		{
 			m_Rotation.y += DirectX::XM_PI * 0.01f;
 		}

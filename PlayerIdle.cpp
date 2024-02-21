@@ -21,6 +21,7 @@ void PlayerIdle::Update()
 	//シーンとプレイヤーの情報を取得する
 	scene = Manager::GetScene();
 	PlayerObj = scene->GetGameObject<Player>();
+	Camera* cameraobj = scene->GetGameObject<Camera>();//カメラの情報を取得
 
 	//プレイヤーが歩く場合
 	if (Input::GetKeyPress('W') ||

@@ -10,6 +10,7 @@ void PlayerWalk::Enter()
 	//シーンとプレイヤーの情報を取得する
 	scene = Manager::GetScene();
 	PlayerObj = scene->GetGameObject<Player>();
+	Camera* cameraobj = scene->GetGameObject<Camera>();//カメラの情報を取得
 
 	//From側のアニメーションとフレームのセット
 	PlayerObj->Set_ToAnim(AnimName);
@@ -22,15 +23,14 @@ void PlayerWalk::Update()
 	scene = Manager::GetScene();   //現在のシーン取得
 	PlayerObj = scene->GetGameObject<Player>();	//プレイヤーの情報を取得
 	Camera* cameraobj = scene->GetGameObject<Camera>();//カメラの情報を取得
+	Vector3 m_Pos = PlayerObj->GetPosition();	//プレイヤーのポジションを取得
 
 	//プレイヤーの行列を取得
+
 	Matrix viewmtx = cameraobj->GetViewMatrix();
-	Vector3 ZAxis = Vector3(viewmtx._13, 0.0f, viewmtx._33);
-	Vector3 XAxis = Vector3(viewmtx._11, 0.0f, viewmtx._31);
-
-	//プレイヤーのポジションを取得
-	Vector3 m_Pos = PlayerObj->GetPosition();
-
+	ZAxis = Vector3(viewmtx._13, 0.0f, viewmtx._33);
+	XAxis = Vector3(viewmtx._11, 0.0f, viewmtx._31);
+		
 	//スティックの倒れ具合の値を取得
 	short int Stick_X = Input::GetPadstick_Left_X();
 	short int Stick_Y = Input::GetPadstick_Left_Y();
@@ -40,24 +40,21 @@ void PlayerWalk::Update()
 		if (Input::GetKeyPress('W') || Stick_Y > 0)
 		{
 			m_Pos += ZAxis * WarkSpeed;
-			PlayerObj->m_Axis += ZAxis;
 		}
 		else if (Input::GetKeyPress('S') || Stick_Y < 0)
 		{
 			m_Pos -= ZAxis * WarkSpeed;
-			PlayerObj->m_Axis -= ZAxis;
 			PlayerObj->m_FromFrame -= 2.0f;  //後ろ向きに歩くため
 		}
 
-		if (Input::GetKeyPress('A')|| Stick_X<0)
+		if (Input::GetKeyPress('A') || Stick_X < 0)
 		{
 			m_Pos -= XAxis * WarkSpeed;
-			PlayerObj->m_Axis -= XAxis;
 		}
-		if (Input::GetKeyPress('D')||Stick_X>0)
+		if (Input::GetKeyPress('D') || Stick_X > 0)
 		{
 			m_Pos += XAxis * WarkSpeed;
-			PlayerObj->m_Axis += XAxis;
+
 		}
 	}
 
@@ -66,10 +63,8 @@ void PlayerWalk::Update()
 	PlayerObj->SetPosition(m_Pos);
 
 	//走っている場合
-	if (Input::GetKeyPress('P')||Input::Input::GetPadTrigger_Left())
-	{
+	if (Input::GetKeyPress('P') || Input::Input::GetPadTrigger_Left())
 		PlayerObj->GetComponent<StateMachine<Player>>()->SendTrigger(Trigger::ToRun);
-	}
 
 	//歩いていない場合
 	if (m_Pos == PlayerObj->m_OldPosition)

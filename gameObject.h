@@ -32,6 +32,8 @@ protected:
 	DirectX::SimpleMath::Vector3	m_Rotation = DirectX::SimpleMath::Vector3(0.0f, 0.0f, 0.0f);
 	DirectX::SimpleMath::Vector3	m_Scale = DirectX::SimpleMath::Vector3(1.0f, 1.0f, 1.0f);
 
+	DirectX::SimpleMath::Vector3 m_Forward;  //プレイヤーの前
+
 	DirectX::SimpleMath::Vector3	m_OldPosition ;
 	DirectX::SimpleMath::Vector3	m_OldRotation;
 	DirectX::SimpleMath::Vector3	m_OldScale;
@@ -49,25 +51,26 @@ public:
 	DirectX::SimpleMath::Vector3 GetPosition() { return m_Position; }
 	DirectX::SimpleMath::Vector3 GetRotation() { return m_Rotation; }
 	DirectX::SimpleMath::Vector3 GetScale() { return m_Scale; }
+	DirectX::SimpleMath::Vector3 GetForward() { return m_Forward; }
 	void SetPosition(DirectX::SimpleMath::Vector3 Position) { m_Position = Position; }
 	void SetRotation(DirectX::SimpleMath::Vector3 Rotation) { m_Rotation = Rotation; }
 	void SetScale(DirectX::SimpleMath::Vector3 Scale) { m_Scale = Scale; }
+	void SetForward(DirectX::SimpleMath::Vector3 Forward) { m_Forward = Forward; }
 
 	DirectX::SimpleMath::Matrix GetWorldMatrix() { return m_WorldMatrix; }
 
 
 
-	DirectX::SimpleMath::Vector3 GetForward()//前方向ベクトル取得
+	DirectX::SimpleMath::Vector3 GetNowForward()//前方向ベクトル取得
 	{
 		DirectX::SimpleMath::Matrix rot;
 		rot = DirectX::SimpleMath::Matrix::CreateFromYawPitchRoll(m_Rotation.y, m_Rotation.x, m_Rotation.z);
 
-		DirectX::SimpleMath::Vector3 forward;
-		forward.x = rot._31;
-		forward.y = rot._32;
-		forward.z = rot._33;
+		m_Forward.x = rot._31;
+		m_Forward.y = rot._32;
+		m_Forward.z = rot._33;
 
-		return forward;
+		return m_Forward;
 	}
 
 	void SetDestroy() { m_Destroy = true; }

@@ -23,6 +23,7 @@ public:
 
 };
 
+//歩いている状態
 class PlayerWalk :public State<Player>
 {
 private:
@@ -31,6 +32,8 @@ private:
 	const char* AnimName = "Walk";  	//アニメーションの名前
 
 	float WarkSpeed = 0.05f;  //歩く速さ
+	DirectX::SimpleMath::Vector3 XAxis;
+	DirectX::SimpleMath::Vector3 ZAxis;
 
 public:
 	PlayerWalk(Player* context) :State(context) {};
@@ -39,6 +42,7 @@ public:
 	void Exit() override;
 };
 
+//走っている状態
 class PlayerRun :public State<Player>
 {
 private:
@@ -46,6 +50,8 @@ private:
 	Player* PlayerObj;  //プレイヤー
 	const char* AnimName = "Run";  	//アニメーションの名前
 
+	DirectX::SimpleMath::Vector3 XAxis;
+	DirectX::SimpleMath::Vector3 ZAxis;
 	float RunSpeed = 0.2f;
 
 public:
@@ -55,6 +61,7 @@ public:
 	void Exit() override;
 };
 
+//ジャンプ状態
 class PlayerJump :public State<Player>
 {
 private:
@@ -74,6 +81,7 @@ public:
 
 };
 
+//落ちている状態
 class PlayerFall :public State<Player>
 {
 private:
@@ -89,6 +97,7 @@ public:
 	void Exit() override;
 };
 
+//攻撃状態
 class PlayerAttack :public State<Player>
 {
 private:
@@ -147,9 +156,8 @@ public:
 		//Attack状態からの移行
 		AddChildTransition<PlayerAttack, PlayerIdle>(Trigger::ToIdle);
 
-		SetCurrentState<PlayerIdle>();
+		SetCurrentState<PlayerIdle>();  //最初のステート設定
 	}
-
 	void Enter()override {};
 	void Update() override {};
 	void Exit()override {};

@@ -135,6 +135,28 @@ short int Input::GetPadstick_Left_Y()
 	return m_PadState.Gamepad.sThumbLY;
 }
 
+short int Input::GetPadstick_Right_X()
+{
+	//遊び（デッドゾーン）の判定
+	if (m_PadState.Gamepad.sThumbRX <  XINPUT_GAMEPAD_RIGHT_THUMB_DEADZONE &&
+		m_PadState.Gamepad.sThumbRX > -XINPUT_GAMEPAD_RIGHT_THUMB_DEADZONE)
+	{
+		m_PadState.Gamepad.sThumbRX= 0;
+	}
+	return m_PadState.Gamepad.sThumbRX;
+}
+
+short int Input::GetPadstick_Right_Y()
+{
+	//遊び（デッドゾーン）の判定
+	if (m_PadState.Gamepad.sThumbRY <  XINPUT_GAMEPAD_RIGHT_THUMB_DEADZONE &&
+		m_PadState.Gamepad.sThumbRY > -XINPUT_GAMEPAD_RIGHT_THUMB_DEADZONE)
+	{
+		m_PadState.Gamepad.sThumbRY = 0;
+	}
+	return m_PadState.Gamepad.sThumbRY;
+}
+
 
 
 

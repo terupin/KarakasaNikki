@@ -19,7 +19,7 @@
 #include"TitleBench.h"
 #include"TitleLogo.h"
 #include"TitleBound.h"
-#include"TitleTorii.h"
+
 
 using namespace DirectX::SimpleMath;
 

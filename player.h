@@ -25,8 +25,6 @@ public:
 
 	bool attack = false;  //攻撃をしているか？?
 	
-	DirectX::SimpleMath::Vector3 m_Axis;
-
 	//位置フレーム前にいた場所
 	DirectX::SimpleMath::Vector3 m_OldPosition;
 
