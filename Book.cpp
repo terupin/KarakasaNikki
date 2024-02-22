@@ -3,6 +3,7 @@
 #include"Model_Load.h"
 #include"manager.h"
 #include"player.h"
+#include"shadow.h"
 
 using namespace DirectX::SimpleMath; 
 
@@ -18,6 +19,8 @@ void Book::Init()
 
 	SetRotation(Vector3(1.5f, 0.0f, 0.0f));
 	SetScale(Vector3(0.01f, 0.01f, 0.01f));
+
+	AddComponent<Shadow>()->SetSize(1.0f);
 
 	player->m_BookNumber++;  //æ‚ç‚È‚¢‚Æ‚¢‚¯‚È‚¢–{‚Ì”‚ğ‘«‚·
 

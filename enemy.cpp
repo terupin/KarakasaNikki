@@ -9,6 +9,7 @@
 #include"umbrella.h"
 #include"EnemyState.h"
 #include"AnimationModel.h"
+#include"shadow.h"
 
 #include"collision.h"
 
@@ -36,6 +37,8 @@ void Enemy::Init()
 	SetPosition(Vector3(3.0f, 0.0f, 7.0f));
 	SetRotation(Vector3(0.0f, 180.0f, 0.0f));
 	SetScale(Vector3(0.01f, 0.01f, 0.01f));  //プレイヤーのサイズ設定
+
+	AddComponent<Shadow>()->SetSize(1.5f);
 
 	//読み込んだアニメーションを取得する
 	m_UDModel->GetAnim(m_Model);

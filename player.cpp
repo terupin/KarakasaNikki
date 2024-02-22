@@ -39,9 +39,6 @@ void Player::Init()
 
 	AddComponent<Shadow>()->SetSize(1.5f);//影の大きさの設定
 
-	m_SE = AddComponent<Audio>();
-	m_SE->Load("asset\\audio\\wan.wav");
-
 	 SetScale(Vector3(1.3f, 1.3f, 1.3f));  //プレイヤーのサイズ設定
 
 	 //読み込んだアニメーションを取得する
@@ -60,6 +57,8 @@ void Player::SetState()
 	m_StateMachine->AddState<PlayerState>();
 	m_StateMachine->SetStartState<PlayerState>();
 
+
+
 }
 
 void Player::Update()
@@ -74,12 +73,8 @@ void Player::Update()
 	//当たり判定の更新
 	SetCapsule(PlayerCol,GetPosition(), GetScale(), m_Model->m_Vertices);
 
-	if (Input::GetKeyTrigger(VK_RETURN) || 
-		Input::GetPadButtonTrigger(XINPUT_GAMEPAD_RIGHT_THUMB))
-		m_Camlock = !m_Camlock;
-
 	//カメラ追従
-	if (m_Camlock)
+	if (cameraobj->GetCamlock())
 	{
 		if (Input::GetKeyPress(VK_RIGHT) || Input::GetPadstick_Right_X() > 0)
 		{
@@ -89,8 +84,7 @@ void Player::Update()
 		{
 			m_Rotation.y -= DirectX::XM_PI * 0.01f;  //反時計回り
 		}
-	}
-
+	}	
 	//ステートで実行をしている
 	m_StateMachine->StateUpdate();
 	
@@ -129,17 +123,6 @@ void Player::Update()
 		m_Position.y = groundHeight;
 		m_Velocity.y = 0.0f;
 	}
-
-	if (Input::GetKeyTrigger('R'))
-	{
-		std::cout << "プレイヤーのX回転" << m_Rotation.x << std::endl;
-		std::cout << "プレイヤーのY回転" << m_Rotation.y << std::endl;
-		std::cout << "プレイヤーのZ回転" << m_Rotation.z << std::endl;
-		std::cout << "カメラのX回転" << cameraobj->GetRotation().x << std::endl;
-		std::cout << "カメラのY回転" << cameraobj->GetRotation().y << std::endl;
-		std::cout << "カメラのZ回転" << cameraobj->GetRotation().z << std::endl;
-	}
-
 }
 
 void Player::Draw()

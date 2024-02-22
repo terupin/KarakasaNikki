@@ -45,7 +45,5 @@ public:
 
     void Init() override;
     void Update() override;
-    void GetNode(aiNode* node, std::string GetName);
 
-    void GetBonePosition(aiNode* node, aiMatrix4x4 matrix);
 };

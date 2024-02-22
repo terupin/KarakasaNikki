@@ -19,7 +19,8 @@
 #include "sky.h"
 #include "score.h"
 #include"umbrella.h"
-#include"TitleBench.h"
+#include"Book.h"
+#include"enemy.h"
 
 using namespace DirectX::SimpleMath;
 
@@ -33,17 +34,45 @@ void Game::Init()
 	AddGameObject<Player>(1);
 
 	AddGameObject<Enemy>(1);
-	TitleBench* test = AddGameObject<TitleBench>(1);
-	test->SetRotation({ 0.0f, 0.0f, 0.0f });
 
-	Box* boxtest = AddGameObject<Box>(1);
-	boxtest->SetPosition({ -2.0f,0.0f,-2.0f });
+	//壁
+	{
+		Box* box = AddGameObject<Box>(1);
+		box->SetPosition({ 50.0f,0.0f,0.0f });
+		box->SetScale({ 1.0f,5.0f,70.0f });
+		SetAABB(box->GetAABB(), box->GetPosition(),
+			box->GetScale(), box->GetModel().m_Vertices);
+	}
+
+	{
+		Box* box = AddGameObject<Box>(1);
+		box->SetPosition({ -50.0f,0.0f,0.0f });
+		box->SetScale({ 1.0f,5.0f,70.0f });
+		SetAABB(box->GetAABB(), box->GetPosition(),
+			box->GetScale(), box->GetModel().m_Vertices);
+	}
+
+	{
+		Box* box = AddGameObject<Box>(1);
+		box->SetPosition({ 0.0f,0.0f,50.0f });
+		box->SetScale({ 70.0f,5.0f,1.0f });
+		SetAABB(box->GetAABB(), box->GetPosition(),
+			box->GetScale(), box->GetModel().m_Vertices);
+	}
+
+	{
+		Box* box = AddGameObject<Box>(1);
+		box->SetPosition({ 0.0f,0.0f,-50.0f });
+		box->SetScale({ 70.0f,5.0f,1.0f });
+		SetAABB(box->GetAABB(), box->GetPosition(),
+			box->GetScale(), box->GetModel().m_Vertices);
+	}
 
 	//本の読み込み(ゲームで取らないといけないやつ)
 	{
 		Book* bookobj = AddGameObject<Book>(1);
 		bookobj->SetPosition(Vector3(0.0f, 1.0f, 5.0f));
-		SetAABB(bookobj->GetAABB(), bookobj->GetPosition(), 
+		SetAABB(bookobj->GetAABB(), bookobj->GetPosition(),
 			bookobj->GetScale(), bookobj->GetModel().m_Vertices);
 	}
 	{
@@ -57,13 +86,6 @@ void Game::Init()
 		bookobj->SetPosition(Vector3(9.0f, 1.0f, 5.0f));
 		SetAABB(bookobj->GetAABB(), bookobj->GetPosition(),
 			bookobj->GetScale(), bookobj->GetModel().m_Vertices);
-	}
-
-	// チェック完了
-	{
-		Goal* goal = AddGameObject<Goal>(1);
-		goal->SetPosition(Vector3(11.0f, 1.0f, 20.0f));
-		goal->SetScale(Vector3(0.5f, 0.5f, 0.5f));
 	}
 
 	// 画面遷移オブジェクトを登録

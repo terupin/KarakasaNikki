@@ -32,8 +32,12 @@ void Camera::Update()
 	
 	m_Target = playerobj->GetPosition();//ターゲットをプレイヤーにする
 
+	if (Input::GetKeyTrigger(VK_RETURN) ||
+		Input::GetPadButtonTrigger(XINPUT_GAMEPAD_RIGHT_THUMB))
+		m_Camlock = !m_Camlock;
+
 	//カメラ追従がONになったら、プレイヤーの後ろに移動
-	if (playerobj->m_Camlock == true)
+	if (m_Camlock == true)
 	{
 		float  player_degree = (180 / DirectX::XM_PI) * playerrot.y;  //プレイヤーの回転（度に変換）
 		float camera_degree = (180 / DirectX::XM_PI) * m_Rotation.y;  //カメラの回転（度に変換）
@@ -77,7 +81,7 @@ void Camera::Update()
 	}
 	
 	//カメラの追従OFFの場合
-	if (playerobj->m_Camlock == false)
+	if (m_Camlock == false)
 	{
 		if (Input::GetKeyPress(VK_RIGHT)||Input::GetPadstick_Right_X()>0)
 		{
@@ -88,7 +92,6 @@ void Camera::Update()
 		{
 			m_Rotation.y += DirectX::XM_PI * 0.01f;
 		}
-
 	}
 
 	//追従オフの時にポジションを固定する

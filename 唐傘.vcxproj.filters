@@ -67,7 +67,7 @@
     <Filter Include="ヘッダー ファイル\scene">
       <UniqueIdentifier>{785eba6f-d6ed-4b51-80a3-a40724881110}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Collision\Obj">
+    <Filter Include="ソース ファイル\Obj">
       <UniqueIdentifier>{6127050f-a7ee-4079-8631-7e5a3c941191}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -82,28 +82,28 @@
       <Filter>ソース ファイル\system</Filter>
     </ClCompile>
     <ClCompile Include="box.cpp">
-      <Filter>ソース ファイル\Collision\Obj</Filter>
+      <Filter>ソース ファイル\Obj</Filter>
     </ClCompile>
     <ClCompile Include="cylinder.cpp">
-      <Filter>ソース ファイル\Collision\Obj</Filter>
+      <Filter>ソース ファイル\Obj</Filter>
     </ClCompile>
     <ClCompile Include="enemy.cpp">
-      <Filter>ソース ファイル\Collision\Obj</Filter>
+      <Filter>ソース ファイル\Obj</Filter>
     </ClCompile>
     <ClCompile Include="field.cpp">
-      <Filter>ソース ファイル\Collision\Obj</Filter>
+      <Filter>ソース ファイル\Obj</Filter>
     </ClCompile>
     <ClCompile Include="goal.cpp">
-      <Filter>ソース ファイル\Collision\Obj</Filter>
+      <Filter>ソース ファイル\Obj</Filter>
     </ClCompile>
     <ClCompile Include="score.cpp">
-      <Filter>ソース ファイル\Collision\Obj</Filter>
+      <Filter>ソース ファイル\Obj</Filter>
     </ClCompile>
     <ClCompile Include="shadow.cpp">
-      <Filter>ソース ファイル\Collision\Obj</Filter>
+      <Filter>ソース ファイル\Obj</Filter>
     </ClCompile>
     <ClCompile Include="sky.cpp">
-      <Filter>ソース ファイル\Collision\Obj</Filter>
+      <Filter>ソース ファイル\Obj</Filter>
     </ClCompile>
     <ClCompile Include="result.cpp">
       <Filter>ソース ファイル\Scene</Filter>
@@ -121,7 +121,7 @@
       <Filter>ソース ファイル\system</Filter>
     </ClCompile>
     <ClCompile Include="camera.cpp">
-      <Filter>ソース ファイル\Collision\Obj</Filter>
+      <Filter>ソース ファイル\Obj</Filter>
     </ClCompile>
     <ClCompile Include="transition.cpp">
       <Filter>ソース ファイル\system</Filter>
@@ -181,7 +181,7 @@
       <Filter>ソース ファイル\State\Player</Filter>
     </ClCompile>
     <ClCompile Include="Book.cpp">
-      <Filter>ソース ファイル\Collision\Obj</Filter>
+      <Filter>ソース ファイル\Obj</Filter>
     </ClCompile>
     <ClCompile Include="renderer.cpp">
       <Filter>ソース ファイル\system</Filter>

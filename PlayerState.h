@@ -32,8 +32,6 @@ private:
 	const char* AnimName = "Walk";  	//アニメーションの名前
 
 	float WarkSpeed = 0.05f;  //歩く速さ
-	DirectX::SimpleMath::Vector3 XAxis;
-	DirectX::SimpleMath::Vector3 ZAxis;
 
 public:
 	PlayerWalk(Player* context) :State(context) {};
@@ -50,8 +48,6 @@ private:
 	Player* PlayerObj;  //プレイヤー
 	const char* AnimName = "Run";  	//アニメーションの名前
 
-	DirectX::SimpleMath::Vector3 XAxis;
-	DirectX::SimpleMath::Vector3 ZAxis;
 	float RunSpeed = 0.2f;
 
 public:
@@ -105,7 +101,10 @@ private:
 	Player* PlayerObj;  //プレイヤー
 	Umbrella* m_UmbrellaObj;  //傘
 	const char* AnimName = "Attack";  	//アニメーションの名前
-	int Frame =45;
+	int Frame =45;  //アニメーションのフレーム数
+
+	bool FromRun = false;
+	float m_Inertia = 0.01f;  //慣性の力
 
 public:
 	PlayerAttack(Player* context) :State(context) {};
@@ -131,7 +130,7 @@ public:
 		AddChildState<PlayerAttack>();
 
 		//Idle状態からの移行
-		AddChildTransition<PlayerIdle, PlayerWalk>(Trigger::Towalk);
+		AddChildTransition<PlayerIdle, PlayerWalk>(Trigger::ToWalk);
 		AddChildTransition<PlayerIdle, PlayerJump>(Trigger::ToJump);
 		AddChildTransition<PlayerIdle, PlayerAttack>(Trigger::ToAttack);
 
@@ -139,13 +138,13 @@ public:
 		AddChildTransition<PlayerWalk, PlayerIdle>(Trigger::ToIdle);
 		AddChildTransition<PlayerWalk, PlayerRun>(Trigger::ToRun);
 		AddChildTransition<PlayerWalk, PlayerJump>(Trigger::ToJump);
-		AddChildTransition<PlayerIdle, PlayerAttack>(Trigger::ToAttack);
+		AddChildTransition<PlayerWalk, PlayerAttack>(Trigger::ToAttack);
 
 		//Run状態からの移行
 		AddChildTransition<PlayerRun, PlayerIdle>(Trigger::ToIdle);
-		AddChildTransition<PlayerRun, PlayerWalk>(Trigger::Towalk);
+		AddChildTransition<PlayerRun, PlayerWalk>(Trigger::ToWalk);
 		AddChildTransition<PlayerRun, PlayerJump>(Trigger::ToJump);
-		AddChildTransition<PlayerIdle, PlayerAttack>(Trigger::ToAttack);
+		AddChildTransition<PlayerRun, PlayerAttack>(Trigger::ToAttack);
 
 		//Jump状態からの移行
 		AddChildTransition<PlayerJump, PlayerFall>(Trigger::ToFall);

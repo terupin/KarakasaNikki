@@ -12,7 +12,7 @@
 enum Trigger
 {
 	ToIdle,
-	Towalk,
+	ToWalk,
 	ToRun,
 	ToJump,
 	ToFall,
@@ -56,6 +56,7 @@ public:
 	void SetRotation(DirectX::SimpleMath::Vector3 Rotation) { m_Rotation = Rotation; }
 	void SetScale(DirectX::SimpleMath::Vector3 Scale) { m_Scale = Scale; }
 	void SetForward(DirectX::SimpleMath::Vector3 Forward) { m_Forward = Forward; }
+
 
 	DirectX::SimpleMath::Matrix GetWorldMatrix() { return m_WorldMatrix; }
 

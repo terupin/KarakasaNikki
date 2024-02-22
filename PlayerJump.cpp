@@ -16,6 +16,8 @@ void PlayerJump::Enter()
 	PlayerObj->Set_ToAnim(AnimName);
 	PlayerObj->Set_ToFrame(0);
 	PlayerObj->m_BlendRate = 0.0f;
+
+	PlayerObj->m_Move = Trigger::ToJump;
 }
 
 void PlayerJump::Update()

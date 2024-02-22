@@ -14,6 +14,8 @@ void PlayerFall::Enter()
 	PlayerObj->Set_ToAnim(AnimName);
 	PlayerObj->Set_ToFrame(0);
 	PlayerObj->m_BlendRate = 1.0f;
+
+	PlayerObj->m_Move = Trigger::ToFall;
 }
 
 void PlayerFall::Update()

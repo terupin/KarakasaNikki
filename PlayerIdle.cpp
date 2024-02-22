@@ -1,6 +1,7 @@
 #include "PlayerState.h"
 #include"input.h"
 #include"camera.h"
+#include "shadow.h"
 
 using namespace DirectX::SimpleMath;
 
@@ -14,6 +15,8 @@ void PlayerIdle::Enter()
 	PlayerObj->Set_ToAnim(AnimName);
 	PlayerObj->Set_ToFrame(0);
 	PlayerObj->m_BlendRate = 0.0f;
+
+	PlayerObj->m_Move = Trigger::ToIdle;
 }
 
 void PlayerIdle::Update()
@@ -23,6 +26,8 @@ void PlayerIdle::Update()
 	PlayerObj = scene->GetGameObject<Player>();
 	Camera* cameraobj = scene->GetGameObject<Camera>();//カメラの情報を取得
 
+	PlayerObj->GetComponent<Shadow>();
+
 	//プレイヤーが歩く場合
 	if (Input::GetKeyPress('W') ||
 		Input::GetKeyPress('A') ||
@@ -31,7 +36,7 @@ void PlayerIdle::Update()
 		Input::GetPadstick_Left_X() != 0 ||  //スティックが動いていない
 		Input::GetPadstick_Left_Y() != 0)
 	{
-		PlayerObj->GetComponent<StateMachine<Player>>()->SendTrigger(Trigger::Towalk);
+		PlayerObj->GetComponent<StateMachine<Player>>()->SendTrigger(Trigger::ToWalk);
 		return;
 	}
 

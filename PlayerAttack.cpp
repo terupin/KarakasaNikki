@@ -16,7 +16,11 @@ void PlayerAttack::Enter()
 	PlayerObj->Set_ToFrame(0);
 	PlayerObj->m_BlendRate = 0.0f;
 
+	if (PlayerObj->m_Move == Trigger::ToRun)
+		FromRun = true;
+
 	PlayerObj->attack = true;
+	PlayerObj->m_Move = Trigger::ToAttack;
 }
 
 void PlayerAttack::Update()
@@ -25,16 +29,24 @@ void PlayerAttack::Update()
 	PlayerObj = scene->GetGameObject<Player>();
 	m_UmbrellaObj = scene->GetGameObject<Umbrella>();
 
+	if (FromRun)
+	{
+		Vector3 m_Pos = PlayerObj->GetPosition();	//ƒvƒŒƒCƒ„[‚Ìƒ|ƒWƒVƒ‡ƒ“‚ðŽæ“¾
+		m_Pos += PlayerObj->ZAxis * m_Inertia;
+		PlayerObj->SetPosition(m_Pos);	//ƒ|ƒWƒVƒ‡ƒ“‚ðŠi”[‚·‚é
+	}
 
+#if defined(DEBUG) || defined(_DEBUG)
 	std::cout << "ŽP‚ÌX‰ñ“]" << m_UmbrellaObj->GetRotation().x << std::endl;
 	std::cout << "ŽP‚ÌY‰ñ“]" << m_UmbrellaObj->GetRotation().y << std::endl;
 	std::cout << "ŽP‚ÌZ‰ñ“]" << m_UmbrellaObj->GetRotation().z << std::endl;
-	
+#endif//defined(DEBUG) || defined(_DEBUG)
+
+
 	if (PlayerObj->m_ToFrame > Frame)
 	{
 		PlayerObj->GetComponent<StateMachine<Player>>()->SendTrigger(Trigger::ToIdle);
 	}
-
 }
 
 void PlayerAttack::Exit()
@@ -47,4 +59,6 @@ void PlayerAttack::Exit()
 	PlayerObj->Set_FromAnim(AnimName);
 	PlayerObj->Set_FromFrame(0);
 	PlayerObj->attack = false;
+
+	FromRun = false;
 }

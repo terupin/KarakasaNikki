@@ -48,7 +48,7 @@ void Umbrella::Update()
 
     //手のポジション等を検索
     m_AnimPlayer = m_Player->GetComponent<Model_Load>()->m_AiScene;  //プレイヤーのアニメーションモデルの情報
-    m_RightHandBone = m_Player->m_Model->m_Bone[m_HandBoneName];  //プレイヤーの右手のボーン情報
+    m_RightHandBone = m_Player->GetModel().m_Bone[m_HandBoneName];  //プレイヤーの右手のボーン情報
 
     //手の変換行列×手の逆ボーンオフセット行列
     aiMatrix4x4 rootMatrix = m_RightHandBone.Matrix*m_RightHandBone.OffsetMatrix.Inverse();
