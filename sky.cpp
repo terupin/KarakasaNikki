@@ -20,7 +20,6 @@ void Sky::Init()
 	m_Model->LoadTex("asset\\model\\sky.jpg");
 	m_Model->LoadStaticModel("asset\\model\\sky.fbx");
 	
-
 }
 
 

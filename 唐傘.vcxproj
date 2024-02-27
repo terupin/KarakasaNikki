@@ -32,7 +32,6 @@
     <ClCompile Include="EnemyState.cpp" />
     <ClCompile Include="field.cpp" />
     <ClCompile Include="game.cpp" />
-    <ClCompile Include="goal.cpp" />
     <ClCompile Include="input.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="manager.cpp" />
@@ -46,6 +45,10 @@
     <ClCompile Include="PlayerWalk.cpp" />
     <ClCompile Include="renderer.cpp" />
     <ClCompile Include="result.cpp" />
+    <ClCompile Include="ResultCamera.cpp" />
+    <ClCompile Include="ResultLogo.cpp" />
+    <ClCompile Include="ResultPlayer.cpp" />
+    <ClCompile Include="ResultSky.cpp" />
     <ClCompile Include="score.cpp" />
     <ClCompile Include="shader.cpp" />
     <ClCompile Include="shadow.cpp" />
@@ -80,7 +83,6 @@
     <ClInclude Include="fpscontrol.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="gameObject.h" />
-    <ClInclude Include="goal.h" />
     <ClInclude Include="input.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="manager.h" />
@@ -89,6 +91,10 @@
     <ClInclude Include="PlayerState.h" />
     <ClInclude Include="renderer.h" />
     <ClInclude Include="result.h" />
+    <ClInclude Include="ResultCamera.h" />
+    <ClInclude Include="ResultLogo.h" />
+    <ClInclude Include="ResultPlayer.h" />
+    <ClInclude Include="ResultSky.h" />
     <ClInclude Include="scene.h" />
     <ClInclude Include="score.h" />
     <ClInclude Include="shader.h" />
@@ -99,7 +105,6 @@
     <ClInclude Include="StateMachine.h" />
     <ClInclude Include="title.h" />
     <ClInclude Include="TitleBench.h" />
-    <ClInclude Include="TitleBound.h" />
     <ClInclude Include="TitleCamera.h" />
     <ClInclude Include="TitleLogo.h" />
     <ClInclude Include="TitlePlayer.h" />

@@ -6,8 +6,6 @@
 #include"player.h"
 #include"enemy.h"
 #include"Model_Load.h"
-#include"shadow.h"
-
 #include"input.h"
 
 #include<iostream>

@@ -1,20 +1,17 @@
 #include "main.h"
 #include "manager.h"
 #include "renderer.h"
-
 #include "camera.h"
 #include "field.h"
 #include "player.h"
 #include "box.h"
 #include "cylinder.h"
-
 #include "game.h"
 #include "input.h"
 #include "audio.h"
 #include "manager.h"
 #include "transition.h"
 #include "result.h"
-#include "goal.h"
 #include "utility.h"
 #include "sky.h"
 #include "score.h"
@@ -30,10 +27,9 @@ void Game::Init()
 	AddGameObject<Camera>(0);
 	AddGameObject<Sky>(1);
 	AddGameObject<Field>(1);
-	AddGameObject<Umbrella>(1);
-	AddGameObject<Player>(1);
-
-	AddGameObject<Enemy>(1);
+	AddGameObject<Umbrella>(2);
+	AddGameObject<Player>(2);
+	AddGameObject<Enemy>(2);
 
 	//•Ç
 	{

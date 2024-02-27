@@ -70,6 +70,9 @@
     <Filter Include="ソース ファイル\Obj">
       <UniqueIdentifier>{6127050f-a7ee-4079-8631-7e5a3c941191}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Scene\Result">
+      <UniqueIdentifier>{4f6f413e-b0b5-4af4-8eee-e4e35474c4f5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Shader.cpp">
@@ -93,9 +96,6 @@
     <ClCompile Include="field.cpp">
       <Filter>ソース ファイル\Obj</Filter>
     </ClCompile>
-    <ClCompile Include="goal.cpp">
-      <Filter>ソース ファイル\Obj</Filter>
-    </ClCompile>
     <ClCompile Include="score.cpp">
       <Filter>ソース ファイル\Obj</Filter>
     </ClCompile>
@@ -104,9 +104,6 @@
     </ClCompile>
     <ClCompile Include="sky.cpp">
       <Filter>ソース ファイル\Obj</Filter>
-    </ClCompile>
-    <ClCompile Include="result.cpp">
-      <Filter>ソース ファイル\Scene</Filter>
     </ClCompile>
     <ClCompile Include="game.cpp">
       <Filter>ソース ファイル\Scene</Filter>
@@ -153,9 +150,6 @@
     <ClCompile Include="TitlePlayer.cpp">
       <Filter>ソース ファイル\Scene\Title</Filter>
     </ClCompile>
-    <ClCompile Include="TitleLogo.cpp">
-      <Filter>ソース ファイル\Scene\Title</Filter>
-    </ClCompile>
     <ClCompile Include="PlayerIdle.cpp">
       <Filter>ソース ファイル\State\Player</Filter>
     </ClCompile>
@@ -197,6 +191,24 @@
     </ClCompile>
     <ClCompile Include="Application.cpp">
       <Filter>ソース ファイル\system</Filter>
+    </ClCompile>
+    <ClCompile Include="result.cpp">
+      <Filter>ソース ファイル\Scene\Result</Filter>
+    </ClCompile>
+    <ClCompile Include="ResultCamera.cpp">
+      <Filter>ソース ファイル\Scene\Result</Filter>
+    </ClCompile>
+    <ClCompile Include="ResultSky.cpp">
+      <Filter>ソース ファイル\Scene\Result</Filter>
+    </ClCompile>
+    <ClCompile Include="ResultPlayer.cpp">
+      <Filter>ソース ファイル\Scene\Result</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleLogo.cpp">
+      <Filter>ソース ファイル\Scene\Title</Filter>
+    </ClCompile>
+    <ClCompile Include="ResultLogo.cpp">
+      <Filter>ソース ファイル\Scene\Result</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -245,13 +257,7 @@
     <ClInclude Include="TitleBench.h">
       <Filter>ヘッダー ファイル\Title</Filter>
     </ClInclude>
-    <ClInclude Include="TitleBound.h">
-      <Filter>ヘッダー ファイル\Title</Filter>
-    </ClInclude>
     <ClInclude Include="TitleCamera.h">
-      <Filter>ヘッダー ファイル\Title</Filter>
-    </ClInclude>
-    <ClInclude Include="TitleLogo.h">
       <Filter>ヘッダー ファイル\Title</Filter>
     </ClInclude>
     <ClInclude Include="TitlePlayer.h">
@@ -279,9 +285,6 @@
       <Filter>ヘッダー ファイル\Obj</Filter>
     </ClInclude>
     <ClInclude Include="enemy.h">
-      <Filter>ヘッダー ファイル\Obj</Filter>
-    </ClInclude>
-    <ClInclude Include="goal.h">
       <Filter>ヘッダー ファイル\Obj</Filter>
     </ClInclude>
     <ClInclude Include="input.h">
@@ -334,6 +337,21 @@
     </ClInclude>
     <ClInclude Include="field.h">
       <Filter>ヘッダー ファイル\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="ResultCamera.h">
+      <Filter>ヘッダー ファイル\Title</Filter>
+    </ClInclude>
+    <ClInclude Include="ResultPlayer.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="ResultSky.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleLogo.h">
+      <Filter>ヘッダー ファイル\Title</Filter>
+    </ClInclude>
+    <ClInclude Include="ResultLogo.h">
+      <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,24 +1,23 @@
-#include "TitleCamera.h"
-#include "main.h"
+#include "ResultCamera.h"
+#include"main.h"
 
 using namespace DirectX::SimpleMath;
 
-void TitleCamera::Init()
+void ResultCamera::Init()
 {
-	m_Position = Vector3(0.0f,1.0f, 0.0f);
+	m_Position = Vector3(0.0f, 1.0f, 0.0f);
 	m_Target = Vector3(0.0f, 1.0f, 12.0f);
-
 }
 
-void TitleCamera::Uninit()
+void ResultCamera::Uninit()
 {
 }
 
-void TitleCamera::Update()
+void ResultCamera::Update()
 {
 }
 
-void TitleCamera::Draw()
+void ResultCamera::Draw()
 {
 	// ƒrƒ…[•ÏŠ·Œã—ñì¬
 	Vector3 up = Vector3(0.0f, 1.0f, 0.0f);

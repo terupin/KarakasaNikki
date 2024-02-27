@@ -26,12 +26,12 @@ void Enemy::Init()
 	m_Model = AddComponent<Model_Load>();
 	m_UDModel = AddComponent<AnimationModel>();
 
-	m_Model->LoadModel("asset/model/Ninja Idle.fbx");
+	m_Model->LoadModel("asset/model/Enemy/T-Pose.fbx");
 
 	//アニメーションの読み込み
-	m_Model->LoadAnimation("asset/model/Ninja Idle.fbx", "Idle");
-	m_Model->LoadAnimation("asset/model/Sneak Walk.fbx", "Walk");
-	m_Model->LoadAnimation("asset/model/Run.fbx", "Run");
+	m_Model->LoadAnimation("asset/model/Enemy/Ninja Idle.fbx", "Idle");
+	m_Model->LoadAnimation("asset/model/Enemy/Sneak Walk.fbx", "Walk");
+	m_Model->LoadAnimation("asset/model/Enemy/Run.fbx", "Run");
 	m_Model->LoadAnimation("asset/model/Enemy/Death.fbx", "Death");
 
 	SetPosition(Vector3(3.0f, 0.0f, 7.0f));

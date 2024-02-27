@@ -1,25 +1,15 @@
 #include "main.h"
 #include "manager.h"
-
 #include "input.h"
-
 #include "title.h"
-
 #include "game.h"
-
-#include "shader.h"
-#include "sprite.h"
-
 #include "transition.h"
 #include "field.h"
-
 #include"TitleCamera.h"
 #include "TitleSky.h"
 #include"TitlePlayer.h"
 #include"TitleBench.h"
 #include"TitleLogo.h"
-#include"TitleBound.h"
-
 
 using namespace DirectX::SimpleMath;
 

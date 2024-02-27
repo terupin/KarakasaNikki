@@ -1,14 +1,13 @@
-#include "TitleSky.h"
+#include "ResultSky.h"
 #include"manager.h"
 #include "shader.h"
 #include"scene.h"
-#include"TitleCamera.h"
+#include"ResultCamera.h"
 #include"Model_Load.h"
-
 
 using namespace DirectX::SimpleMath;
 
-void TitleSky::Init()
+void ResultSky::Init()
 {
 	m_Scale = Vector3(100.0f, 100.0f, 100.0f);
 	m_Model = AddComponent<Model_Load>();
@@ -17,14 +16,13 @@ void TitleSky::Init()
 
 	m_Model->LoadTex("asset\\texture\\sky.jpg");
 	m_Model->LoadStaticModel("asset\\model\\sky.fbx");
-
 }
 
-void TitleSky::Update()
+void ResultSky::Update()
 {
 
 	Scene* scene = Manager::GetScene();
-	TitleCamera* camera = scene->GetGameObject<TitleCamera>();
+	ResultCamera* camera = scene->GetGameObject<ResultCamera>();
 
 	Vector3 cameraPosition = camera->GetPosition();
 	m_Position = cameraPosition;

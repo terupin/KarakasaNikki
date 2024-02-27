@@ -6,7 +6,6 @@
 #include "input.h"
 #include "audio.h"
 #include "shadow.h"
-#include "goal.h"
 #include "collision.h"
 #include "camera.h"
 
@@ -37,12 +36,12 @@ void Player::Init()
 	m_Model->LoadAnimation("asset/model/Player/Falling.fbx", "Fall");
 	m_Model->LoadAnimation("asset/model/Player/Attack_45.fbx", "Attack");
 
-	AddComponent<Shadow>()->SetSize(1.5f);//影の大きさの設定
-
 	 SetScale(Vector3(1.3f, 1.3f, 1.3f));  //プレイヤーのサイズ設定
 
 	 //読み込んだアニメーションを取得する
 	 m_UDModel->GetAnim(m_Model);
+
+	 AddComponent<Shadow>()->SetSize(1.5f);//影の大きさの設定
 
 	 SetState();
 

@@ -1,4 +1,3 @@
-
 #include "main.h"
 #include "renderer.h"
 #include "manager.h"
@@ -54,7 +53,7 @@ void Shadow::Init()
 		nullptr,
 		&m_Texture);
 
-	assert(m_Texture);
+	//assert(m_Texture);
 }
 
 
